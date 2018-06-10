@@ -23,6 +23,3 @@
 /dist/
 /nbdist/
 /.nb-gradle/
-
-.DS_Store
-.mvn/wrapper/

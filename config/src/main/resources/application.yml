@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: CONFIG
+#github仓库地址
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/abcdtianzi/config-repo
+          username: abcdtianzi
+          password: ting27924757
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8084
