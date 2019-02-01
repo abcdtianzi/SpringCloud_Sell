@@ -1,5 +1,6 @@
 package com.ting.product.controller;
 
+import com.ting.product.common.DecreaseStockInput;
 import com.ting.product.common.ProductInfoOutput;
 import com.ting.product.dataobject.ProductCategory;
 import com.ting.product.dataobject.ProductInfo;
@@ -12,10 +13,8 @@ import com.ting.product.vo.ProductVo;
 import com.ting.product.vo.ResultVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,15 +84,30 @@ public class ProductController {
 
     /*根据商品id列表获取商品信息， 这是给订单服务用的！！*/
     @PostMapping("/listForOrder")
-    public List<ProductInfoOutput> listForOrder(@RequestBody List<String> productIdList){
+    public List<ProductInfoOutput> listForOrder(@RequestBody List<String> productIdList) throws InterruptedException {
+        Thread.sleep(2000);
         return productService.findList(productIdList);
     }
 
 
     /*减库存*/
     @PostMapping("/decreaseStock")
-    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
-         productService.decreaseStock(cartDTOList);
+    public void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList){
+         productService.decreaseStock(decreaseStockInputList);
+    }
+
+    //测试传文件类型
+    @PostMapping("/testMutipartFile")
+    public String testMutipartFile(MultipartFile file){
+        System.out.println(file.getOriginalFilename());
+        return "ok";
+    }
+
+    //测试传自定义类型
+    @PostMapping("/testDtoClass")
+    public String testDtoClass(@RequestBody  CartDTO cartDTO){
+        System.out.println(cartDTO);
+        return "ok";
     }
 
 

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.ting.product.repository.ProductCategoryRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 31.253 sec <<< FAILURE! - in com.ting.product.repository.ProductCategoryRepositoryTest
+testFindByCategoryTypeIn(com.ting.product.repository.ProductCategoryRepositoryTest)  Time elapsed: 0.905 sec  <<< FAILURE!
+java.lang.AssertionError
+	at com.ting.product.repository.ProductCategoryRepositoryTest.testFindByCategoryTypeIn(ProductCategoryRepositoryTest.java:33)
+

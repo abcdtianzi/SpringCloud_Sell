@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: ORDER
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+    stream:
+      bindings:
+        myMessage:
+          group: order  #stream分组，都属于order组，多台实例监听这一个队列，只会有一个实例消费
+          content-type: application/json  #消息序列化成json
+#配置zipkin
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      percentage: 1  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: 127.0.0.1
+
+#超时配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+#断路配置
+      circuitBreaker:
+        enabled: true
+        requestVolumeThreshold: 5
+        sleepWindowInMilliseconds: 10000
+        errorThresholdPercentage: 60
+
+
+feign:
+  hystrix:
+    enabled: true
+
+#可视化hystrix控制台，配置这个免加application
+management:
+  context-path: /
+
+

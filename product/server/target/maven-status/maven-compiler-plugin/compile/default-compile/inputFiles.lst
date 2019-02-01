@@ -12,6 +12,7 @@
 /Users/ting/IdeaProjects/SpringCloud_Sell/product/server/src/main/java/com/ting/product/repository/ProductCategoryRepository.java
 /Users/ting/IdeaProjects/SpringCloud_Sell/product/server/src/main/java/com/ting/product/service/impl/ProductServiceImpl.java
 /Users/ting/IdeaProjects/SpringCloud_Sell/product/server/src/main/java/com/ting/product/dataobject/ProductCategory.java
+/Users/ting/IdeaProjects/SpringCloud_Sell/product/server/src/main/java/com/ting/product/utils/JsonUtil.java
 /Users/ting/IdeaProjects/SpringCloud_Sell/product/server/src/main/java/com/ting/product/dto/CartDTO.java
 /Users/ting/IdeaProjects/SpringCloud_Sell/product/server/src/main/java/com/ting/product/service/impl/CategoryServiceImpl.java
 /Users/ting/IdeaProjects/SpringCloud_Sell/product/server/src/main/java/com/ting/product/controller/ProductController.java

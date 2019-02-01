@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: test
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: 127.0.0.1
+zuul:
+  routes:
+  #/myproduct/product/list  -> /product/product/list
+    myproduct:
+      path: /myProduct/**     #自定义名字
+      serviceId: product
+      sensitiveHeaders:     #敏感头设置为空可以传cookie，默认不传cookie
+  #简洁写法：
+    product: /myProduct/**
+
+  ignored-patterns: #禁止访问接口，列表形式
+    - /**/product/listForOrder
+
+
+hystrix:
+  command:
+    default:
+#超时配置
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000

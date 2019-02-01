@@ -1,5 +1,6 @@
 package com.ting.product.service;
 
+import com.ting.product.common.DecreaseStockInput;
 import com.ting.product.common.ProductInfoOutput;
 import com.ting.product.dataobject.ProductInfo;
 import com.ting.product.dto.CartDTO;
@@ -22,5 +23,5 @@ public interface ProductService {
 
 
     /*减库存*/
-    void decreaseStock(List<CartDTO> cartDTOList);
+    void decreaseStock(List<DecreaseStockInput> decreaseStockInputList);
 }

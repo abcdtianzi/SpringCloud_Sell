@@ -45,7 +45,7 @@ public class OrderServiceImpl implements OrderService {
     //创建订单，dto为数据传输对象
     public OrderDTO create(OrderDTO orderDTO) {
         String orderId = KeyUtil.getUniqueKey();
-        //查询商品信息（调用商品服务）
+        //1。查询商品信息（调用商品服务）
         List<String> productIdList = orderDTO.getOrderDetailList().stream()
                 .map(OrderDetail::getProductId)
                 .collect(Collectors.toList());
@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
         List<ProductInfoOutput> productInfoList = productClient.listForOrder(productIdList);
 
 
-        // 计算总价
+        //2。 计算总价
         BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
         for (OrderDetail orderDetail : orderDTO.getOrderDetailList()) {
             for(ProductInfoOutput productInfo:productInfoList){
@@ -71,7 +71,7 @@ public class OrderServiceImpl implements OrderService {
             }
         }
 
-        // 扣库存
+        // 3。扣库存
         List<DecreaseStockInput> decreaseStockInputList = orderDTO.getOrderDetailList().stream()
                 .map(e -> new DecreaseStockInput(e.getProductId(), e.getProductQuantity()))
                 .collect(Collectors.toList());
@@ -87,8 +87,19 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
 
-
+        //4。订单入库
         orderMasterRepository.save(orderMaster);
         return orderDTO;
+    }
+
+    @Override
+    public OrderDTO finish(String orderId) {
+        //先查询订单
+
+        //查询订单状态
+
+        //修改订单为完成状态
+
+        return null;
     }
 }

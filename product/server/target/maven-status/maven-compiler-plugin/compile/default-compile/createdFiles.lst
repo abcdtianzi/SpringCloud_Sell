@@ -13,6 +13,7 @@ com/ting/product/controller/ProductController.class
 com/ting/product/SpringCloudProductApplication.class
 com/ting/product/repository/ProductInfoRepository.class
 com/ting/product/dataobject/ProductInfo.class
+com/ting/product/utils/JsonUtil.class
 com/ting/product/vo/ProductVo.class
 com/ting/product/repository/ProductCategoryRepository.class
 com/ting/product/vo/ResultVo.class

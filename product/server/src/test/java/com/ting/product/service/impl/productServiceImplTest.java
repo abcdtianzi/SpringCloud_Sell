@@ -1,6 +1,7 @@
 package com.ting.product.service.impl;
 
 import com.ting.product.SpringCloudProductApplicationTests;
+import com.ting.product.common.DecreaseStockInput;
 import com.ting.product.dataobject.ProductInfo;
 import com.ting.product.dto.CartDTO;
 import com.ting.product.service.ProductService;
@@ -31,7 +32,7 @@ public class productServiceImplTest extends SpringCloudProductApplicationTests{
 
     @Test
     public void decreaseStock()throws Exception{
-        CartDTO cartDTO = new CartDTO("157875196366160022",2);
+        DecreaseStockInput cartDTO = new DecreaseStockInput("157875196366160022",2);
         productService.decreaseStock(Arrays.asList(cartDTO));
     }
 }

@@ -10,5 +10,9 @@ import com.ting.order.dto.OrderDTO;
  * Time: 下午11:24
  */
 public interface OrderService {
+    //创建订单 买家
     OrderDTO create(OrderDTO orderDTO);
+    //完结订单 卖家
+    OrderDTO finish(String orderId);
+
 }
