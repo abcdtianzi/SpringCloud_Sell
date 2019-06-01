@@ -7,8 +7,8 @@ spring:
       server:
         git:
           uri: https://github.com/abcdtianzi/config-repo
-          username: abcdtianzi
-          password: ting27924757
+          username: 
+          password: 
           basedir: /Users/ting/IdeaProjects/SpringCloud_Sell/config/basedir #该地址为本地仓库
 eureka:
   client:
